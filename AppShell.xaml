@@ -14,9 +14,6 @@
         Title="Register"
         ContentTemplate="{DataTemplate views:RegisterView}"
         Route="Register" />
-   
-    
-    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"

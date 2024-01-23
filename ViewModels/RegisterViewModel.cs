@@ -50,6 +50,7 @@ namespace ProjectMobilne.ViewModels
                 Email = string.Empty;
                 Password = string.Empty;
                 ConfirmPassword = string.Empty;
+                await Shell.Current.GoToAsync("//Login");
             }
             catch (Exception)
             {

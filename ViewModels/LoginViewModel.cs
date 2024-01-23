@@ -28,7 +28,7 @@ namespace ProjectMobilne.ViewModels
         private string _password;
 
         [RelayCommand]
-        private async Task SignIn()
+        private async Task Login()
         {
             
             try
@@ -37,6 +37,7 @@ namespace ProjectMobilne.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Successfuly", "You have signed in.", "OK");
                 Email = string.Empty;
                 Password = string.Empty;
+                await Shell.Current.GoToAsync("//MainPage");
             }
             catch (Exception)
             {

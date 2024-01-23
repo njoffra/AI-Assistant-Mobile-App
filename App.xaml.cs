@@ -8,4 +8,9 @@ public partial class App : Application
 
 		MainPage = new AppShell();
 	}
+    protected override async void OnStart()
+    {
+		await Shell.Current.GoToAsync("//Login");
+        base.OnStart();
+    }
 }
