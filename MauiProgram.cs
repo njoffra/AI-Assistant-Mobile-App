@@ -1,8 +1,11 @@
-﻿using Firebase.Auth;
+﻿using ChatGptNet;
+using Firebase.Auth;
 using Firebase.Auth.Providers;
 using Microsoft.Extensions.Logging;
 using ProjectMobilne.ViewModels;
 using ProjectMobilne.Views;
+using ChatGptNet;
+using ChatGptNet.Models;
 
 namespace ProjectMobilne;
 
@@ -32,6 +35,14 @@ public static class MauiProgram
 				new EmailProvider()
 			}
 		}));
+        builder.Services.AddChatGpt(options =>
+        {
+            options.ApiKey = "<your-api-key-here>";
+            options.Organization = null; // Optional
+            options.DefaultModel = ChatGptModels.Gpt35Turbo; // Default: ChatGptModels.Gpt35Turbo
+            options.MessageLimit = 10; // Default: 10
+            options.MessageExpiration = TimeSpan.FromMinutes(5); // Default: 1 hour
+        });
 
 #if DEBUG
         builder.Logging.AddDebug();
