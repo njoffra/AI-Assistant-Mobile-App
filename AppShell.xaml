@@ -7,6 +7,10 @@
     xmlns:views="clr-namespace:ProjectMobilne.Views"
     Shell.FlyoutBehavior="Disabled">
     <ShellContent
+        Title="Chat"
+        ContentTemplate="{DataTemplate views:ChatView}"
+        Route="Chat" />
+    <ShellContent
         Title="Login"
         ContentTemplate="{DataTemplate views:LoginView}"
         Route="Login" />

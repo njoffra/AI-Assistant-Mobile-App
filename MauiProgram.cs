@@ -4,8 +4,10 @@ using Firebase.Auth.Providers;
 using Microsoft.Extensions.Logging;
 using ProjectMobilne.ViewModels;
 using ProjectMobilne.Views;
-using ChatGptNet;
 using ChatGptNet.Models;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
+using ProjectMobilne.Services;
 
 namespace ProjectMobilne;
 
@@ -21,27 +23,44 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		builder.AddAppSettings();
 		builder.Services.AddTransient<RegisterViewModel>();
 		builder.Services.AddTransient<RegisterView>();
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<LoginView>();
+        builder.Services.AddTransient<ChatViewModel>();
+        builder.Services.AddTransient<ChatView>();
+        builder.Services.AddTransient<IApiService, ApiService>();
+        string firebase_api_key = builder.Configuration.GetValue<string>("FIREBASE_API_KEY");
+		string firebase_auth_domain = builder.Configuration.GetValue<string>("FIREBASE_AUTH_DOMAIN");
+		string openai_api_key = builder.Configuration.GetValue<string>("OPENAI_API_KEY");
 		builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig()
 		{
-			ApiKey = "AIzaSyAx6Q5hdsqdl7vch36iGfOxwm_CNRV8Q-U\r\n",
-			AuthDomain = "mobilneproject.firebaseapp.com",
+			ApiKey = firebase_api_key,
+			AuthDomain = firebase_auth_domain,
 
-            Providers = new FirebaseAuthProvider[]
+			Providers = new FirebaseAuthProvider[]
 			{
 				new EmailProvider()
 			}
-		}));
+		})) ;
         builder.Services.AddChatGpt(options =>
         {
-            options.ApiKey = "<your-api-key-here>";
-            options.Organization = null; // Optional
-            options.DefaultModel = ChatGptModels.Gpt35Turbo; // Default: ChatGptModels.Gpt35Turbo
-            options.MessageLimit = 10; // Default: 10
-            options.MessageExpiration = TimeSpan.FromMinutes(5); // Default: 1 hour
+            // OpenAI.
+            options.UseOpenAI(apiKey: openai_api_key, organization: "");
+
+            // Azure OpenAI Service.
+            //options.UseAzure(resourceName: "", apiKey: "", authenticationType: AzureAuthenticationType.ApiKey);
+
+            options.DefaultModel = "gpt-3.5-turbo";
+            options.DefaultEmbeddingModel = "text-embedding-ada-002";
+            options.MessageLimit = 16;  // Default: 10
+            options.MessageExpiration = TimeSpan.FromMinutes(5);    // Default: 1 hour
+            options.DefaultParameters = new ChatGptParameters
+            {
+                MaxTokens = 800,
+                Temperature = 0.7
+            };
         });
 
 #if DEBUG
@@ -49,5 +68,19 @@ public static class MauiProgram
 #endif
 
 		return builder.Build();
+	}
+
+	private static void AddAppSettings(this MauiAppBuilder builder)
+	{
+		using Stream stream = Assembly
+			.GetExecutingAssembly()
+			.GetManifestResourceStream("ProjectMobilne.appsettings.json");
+		if(stream != null)
+		{
+			IConfigurationRoot config = new ConfigurationBuilder()
+				.AddJsonStream(stream)
+				.Build();
+			builder.Configuration.AddConfiguration(config);
+		}
 	}
 }

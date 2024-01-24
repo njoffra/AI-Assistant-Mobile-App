@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectMobilne.Views.ChatView"
+             Title="ChatView">
+    <VerticalStackLayout Padding="25" MaximumWidthRequest="800">
+
+        <Editor Margin="0,2,0,0" Text="{Binding Request}" AutoSize="TextChanges" />
+        <Button Text="Ask It" Margin="25,25,25,0" Command="{Binding ProceedRequestCommand}"/>
+        <Label Text="{Binding ChatResponse.Content}" FontSize="16" Margin="0,10,0,0" />
+    </VerticalStackLayout>
+</ContentPage>
