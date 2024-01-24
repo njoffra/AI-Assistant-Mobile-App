@@ -39,19 +39,19 @@ namespace ProjectMobilne.Services
                 Console.WriteLine(response);
 
                
-                // Optionally, you can return the response to the caller
+                
                 return new ChatResponseModel { Content = response.GetContent() };
             }
             catch (UnauthorizedAccessException ex)
             {
                 Console.WriteLine($"UnauthorizedAccessException: {ex.Message}");
-                // Handle the exception appropriately, e.g., log, show a user-friendly message, etc.
+                
                 return new ChatResponseModel { Content = $"UnauthorizedAccessException: {ex.Message}" };
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An unexpected exception occurred: {ex.Message}");
-                // Handle other exceptions here if needed
+                
                 return new ChatResponseModel { Content = $"UnauthorizedAccessException: {ex.Message}" };
             }
         }
