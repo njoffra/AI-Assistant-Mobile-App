@@ -9,4 +9,5 @@ public partial class ChatView : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
 	}
+
 }
