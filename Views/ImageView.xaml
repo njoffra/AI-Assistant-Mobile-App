@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProjectMobilne.Views.ChatView"
-             Title="ChatView">
+             x:Class="ProjectMobilne.Views.ImageView"
+             Title="ImageView">
     <Grid Margin="20"
           RowDefinitions="Auto,*,Auto">
         <Label Text="{Binding Request}"
                FontSize="14"
-               FontFamily="NexaHeavy"
+               FontAttributes="Bold"
                HorizontalOptions="Center" 
                />
         <ScrollView x:Name="scrollView"
@@ -16,17 +16,17 @@
                     >
             <StackLayout VerticalOptions="FillAndExpand">
                 <Editor Margin="0,2,0,0" Text="{Binding Request}" AutoSize="TextChanges" />
-                <Button Text="Ask It" Margin="25,25,25,25" Command="{Binding ProceedRequestCommand}"/>
+                <Button Text="Ask It" Margin="25,25,25,25" Command="{Binding ProceedRequestImageCommand}"/>
                 <Frame BackgroundColor="WhiteSmoke" Margin="2" Padding="4">
-                    <Label Text="{Binding ResponseText}" LineBreakMode="WordWrap"  
+                    <Label Text="{Binding ChatResponse.Content}" LineBreakMode="WordWrap"  
                        TextColor="Red"
                        BackgroundColor="Black"
-                       FontFamily="NexaLight"
                        Padding="10,5,5,10"
                        />
                 </Frame>
+                <Editor Margin="0,2,0,0" Text="{Binding ChatResponse.Content}" AutoSize="TextChanges" />
             </StackLayout>
         </ScrollView>
-        
+
     </Grid>
 </ContentPage>

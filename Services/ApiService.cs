@@ -33,7 +33,7 @@ namespace ProjectMobilne.Services
             {
                 var response = await _chatGptClient.AskAsync(conversationId, message, new ChatGptParameters
                 {
-                    MaxTokens = 150,
+                    MaxTokens = 400,
                     Temperature = 0.7
                 });
                 Console.WriteLine(response);

@@ -8,32 +8,47 @@ using ChatGptNet.Models;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using ProjectMobilne.Services;
+using PanCardView;
+using CommunityToolkit.Maui;
+using ProjectMobilne.Data;
 
 namespace ProjectMobilne;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
+    public static string CurrentGptModelEmbedding { get; set; }
+    public static string CurrentGptModel { get; set; }
+    public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+			.UseCardsView()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+                fonts.AddFont("Nexa-ExtraLight.ttf", "NexaLight");
+                fonts.AddFont("Nexa-Heavy.ttf", "NexaHeavy");
+            });
 		builder.AddAppSettings();
 		builder.Services.AddTransient<RegisterViewModel>();
 		builder.Services.AddTransient<RegisterView>();
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<LoginView>();
         builder.Services.AddTransient<ChatViewModel>();
+        builder.Services.AddTransient<NewChatView>();
+        builder.Services.AddTransient<NewChatViewModel>();
         builder.Services.AddTransient<ChatView>();
+        builder.Services.AddTransient<ImageView>();
         builder.Services.AddTransient<IApiService, ApiService>();
+		builder.Services.AddTransient<IProfileService, ProfileService>();
+        builder.Services.AddSingleton<Profiles>();
         string firebase_api_key = builder.Configuration.GetValue<string>("FIREBASE_API_KEY");
 		string firebase_auth_domain = builder.Configuration.GetValue<string>("FIREBASE_AUTH_DOMAIN");
 		string openai_api_key = builder.Configuration.GetValue<string>("OPENAI_API_KEY");
+		
 		builder.Services.AddSingleton(new FirebaseAuthClient(new FirebaseAuthConfig()
 		{
 			ApiKey = firebase_api_key,
@@ -52,8 +67,8 @@ public static class MauiProgram
             // Azure OpenAI Service.
             //options.UseAzure(resourceName: "", apiKey: "", authenticationType: AzureAuthenticationType.ApiKey);
 
-            options.DefaultModel = "gpt-3.5-turbo";
-            options.DefaultEmbeddingModel = "text-embedding-ada-002";
+            options.DefaultModel = CurrentGptModel;
+            options.DefaultEmbeddingModel = CurrentGptModelEmbedding;
             options.MessageLimit = 16;  // Default: 10
             options.MessageExpiration = TimeSpan.FromMinutes(5);    // Default: 1 hour
             options.DefaultParameters = new ChatGptParameters
@@ -82,5 +97,7 @@ public static class MauiProgram
 				.Build();
 			builder.Configuration.AddConfiguration(config);
 		}
+
 	}
+
 }

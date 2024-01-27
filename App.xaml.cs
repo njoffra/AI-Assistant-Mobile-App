@@ -10,7 +10,7 @@ public partial class App : Application
 	}
     protected override async void OnStart()
     {
-		await Shell.Current.GoToAsync("//Chat");
+		await Shell.Current.GoToAsync("//NewChat");
         base.OnStart();
     }
 }

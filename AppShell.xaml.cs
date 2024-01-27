@@ -1,4 +1,6 @@
-﻿namespace ProjectMobilne;
+﻿using ProjectMobilne.Views;
+
+namespace ProjectMobilne;
 
 public partial class AppShell : Shell
 {

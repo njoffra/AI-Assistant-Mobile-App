@@ -5,12 +5,12 @@
              x:Class="ProjectMobilne.Views.LoginView"
              Title="Sign In">
     <VerticalStackLayout Padding="25" MaximumWidthRequest="800">
-        <Label 
+        <!--<Label 
             Padding="25,25,25,25"
             Text="Welcome to SaddamHusein app. Challenge your imagination and try to find him!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
-            FontAttributes="Bold"/>
+            FontAttributes="Bold"/>-->
         <VerticalStackLayout>
             <Label FontAttributes="Bold" Text="Email"/>
             <Entry Margin="0,2,0,0" Text="{Binding Email}"/>

@@ -50,6 +50,17 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Fonts\Nexa-ExtraLight.ttf" />
+	  <None Remove="Resources\Fonts\Nexa-Heavy.ttf" />
+	  <None Remove="Resources\Images\dabme.jpg" />
+	  <None Remove="Resources\Images\dzibril.jpg" />
+	  <None Remove="Resources\Images\e36.jpg" />
+	  <None Remove="Resources\Images\franku.jpg" />
+	  <None Remove="Resources\Images\happy_birthday.jpg" />
+	  <None Remove="Resources\Images\katana.jpg" />
+	  <None Remove="Resources\Images\nun.jpg" />
+	  <None Remove="Resources\Images\realgangsta.jpg" />
+	  <None Remove="Resources\Images\samacka.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -59,7 +70,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CardsView.Maui" Version="0.0.4" />
 		<PackageReference Include="ChatGptNet" Version="3.1.2" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
@@ -69,13 +82,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\NewChatView.xaml.cs">
+	    <DependentUpon>NewChatView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Shared\Link.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ChatView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewChatView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterView.xaml">
