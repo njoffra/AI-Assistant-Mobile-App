@@ -3,6 +3,7 @@
 
 Features:
 ```
+Account authentication: Firebase.
 Chat Interface: Enjoy a user-friendly chat interface for smooth communication.
 AI Integration: Leverage advanced AI models for intelligent and context-aware responses.
 Assistant Profiles: Choose from a variety of assistant profiles to customize your chat experience.
