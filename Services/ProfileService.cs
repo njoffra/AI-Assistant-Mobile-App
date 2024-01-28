@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectMobilne.ViewModels;
 
 namespace ProjectMobilne.Services
 {
@@ -20,5 +21,6 @@ namespace ProjectMobilne.Services
         {
             return Task.FromResult(_profiles.AssistantProfiles);
         }
+
     }
 }

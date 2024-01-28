@@ -20,6 +20,7 @@ public static class MauiProgram
     public static string CurrentGptModel { get; set; }
     public static MauiApp CreateMauiApp()
 	{
+
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
@@ -37,9 +38,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<RegisterView>();
         builder.Services.AddTransient<LoginViewModel>();
         builder.Services.AddTransient<LoginView>();
-        builder.Services.AddTransient<ChatViewModel>();
+        //builder.Services.AddTransient<ChatViewModel>();
         builder.Services.AddTransient<NewChatView>();
-        builder.Services.AddTransient<NewChatViewModel>();
+        builder.Services.AddScoped<NewChatViewModel>();
         builder.Services.AddTransient<ChatView>();
         builder.Services.AddTransient<ImageView>();
         builder.Services.AddTransient<IApiService, ApiService>();

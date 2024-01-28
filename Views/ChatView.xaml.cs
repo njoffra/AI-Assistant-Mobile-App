@@ -4,10 +4,12 @@ namespace ProjectMobilne.Views;
 
 public partial class ChatView : ContentPage
 {
-	public ChatView(ChatViewModel viewModel)
+	public ChatView(NewChatViewModel viewModel)
 	{
 		InitializeComponent();
 		BindingContext = viewModel;
+		
 	}
 
+    
 }

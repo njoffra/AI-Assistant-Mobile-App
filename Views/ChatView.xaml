@@ -2,31 +2,90 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjectMobilne.Views.ChatView"
-             Title="ChatView">
-    <Grid Margin="20"
-          RowDefinitions="Auto,*,Auto">
-        <Label Text="{Binding Request}"
-               FontSize="14"
-               FontFamily="NexaHeavy"
-               HorizontalOptions="Center" 
-               />
+             BackgroundColor="#101216">
+    <Grid Margin="25,25,0,0"
+          RowDefinitions=".1*,.05*,.75*,.05*">
+        <Grid Margin="0,0,25,0" ColumnDefinitions="*,*">
+            <VerticalStackLayout VerticalOptions="Center" >
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Rectangle Fill="#CACDD3"
+                           HeightRequest="2"
+                           HorizontalOptions="Start"
+                           WidthRequest="25">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}" />
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="#CACDD3"
+                           Margin="0,5,0,0"
+                           HeightRequest="2"
+                           HorizontalOptions="Start"
+                           WidthRequest="35">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}" />
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+            </VerticalStackLayout>
+            <!--<Border
+                Grid.Column="1"
+                HeightRequest="60"
+                HorizontalOptions="End"
+                StrokeShape="RoundRectangle 80,80,80,80"
+                WidthRequest="60">
+                <Image
+                Aspect="AspectFit"
+                HeightRequest="68"
+                HorizontalOptions="FillAndExpand"
+                Source="realgangsta.jpg"
+                WidthRequest="100"/>
+            </Border>-->
+            
+
+        </Grid>
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
+            <!--<Label FontSize="30"
+                   FontFamily="NexaHeavy"
+                   Text="Expert in each field"
+                   TextColor="White"/>-->
+            <Label FontSize="15"
+                   FontFamily="NexaHeavy"
+                   Margin="0,0,0,10"
+                   IsVisible="{Binding IsResponseVisible}"
+                   Text="{Binding Request}"
+                   TextColor="#ACB1BB"
+                   TextTransform="Uppercase"
+                   x:Name="labelResponse"/>
+        </VerticalStackLayout>
+
         <ScrollView x:Name="scrollView"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     VerticalOptions="FillAndExpand"
                     >
             <StackLayout VerticalOptions="FillAndExpand">
-                <Editor Margin="0,2,0,0" Text="{Binding Request}" AutoSize="TextChanges" />
-                <Button Text="Ask It" Margin="25,25,25,25" Command="{Binding ProceedRequestCommand}"/>
-                <Frame BackgroundColor="WhiteSmoke" Margin="2" Padding="4">
+                <Border  
+                    Margin="0,8,25,0"
+                    BackgroundColor="#242529"
+                    HeightRequest="70"
+                    StrokeShape="RoundRectangle 10,10,10,10" StrokeThickness="0">
+                    <Editor Margin="5,5,5,0" Text="{Binding Request}" AutoSize="TextChanges" />
+                </Border>
+                <!--<Editor Margin="0,2,0,0" Text="{Binding Request}" AutoSize="TextChanges" />-->
+                <Button Text="Ask It" Margin="35,25,55,0" Command="{Binding ProceedRequestCommand}"/>
+                <Frame BackgroundColor="WhiteSmoke" Margin="0,20,25,0" Padding="4" IsVisible="{Binding IsResponseVisible}">
                     <Label Text="{Binding ResponseText}" LineBreakMode="WordWrap"  
                        TextColor="Red"
                        BackgroundColor="Black"
-                       FontFamily="NexaLight"
+                       FontSize="15"
+                       FontFamily="NexaHeavy"
                        Padding="10,5,5,10"
+                           IsVisible="{Binding IsResponseVisible}"
                        />
                 </Frame>
             </StackLayout>
         </ScrollView>
-        
+
     </Grid>
+    
 </ContentPage>

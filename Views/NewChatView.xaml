@@ -75,14 +75,31 @@
                                            StrokeThickness="0"/>
                                 <VerticalStackLayout Margin="10,0,0,0"
                                                      VerticalOptions="Center">
-                                    <Label FontFamily="NexaHeavy" FontSize="15"
+                                    <Label 
+                                        FontFamily="NexaHeavy" FontSize="15"
                                            Text="{Binding MainKeyword}"
-                                           TextColor="White"/>
+                                           TextColor="White">
+                                        <Label.Shadow>
+                                            <Shadow
+                                                Brush="black"
+                                                Opacity="1"
+                                                Radius="1"
+                                                Offset="5,5"/>
+                                        </Label.Shadow>
+                                    </Label>
                                     <Label
                                         FontFamily="NexaLight"
                                         FontSize="15"
                                         Text="{Binding Keywords, Converter={StaticResource ListToStringConverter}}"
-                                        TextColor="white"/>
+                                        TextColor="white">
+                                        <Label.Shadow>
+                                            <Shadow
+                                                Brush="black"
+                                                Opacity="1"
+                                                Radius="1"
+                                                Offset="5,5"/>
+                                        </Label.Shadow>
+                                    </Label>
                                 </VerticalStackLayout>
                             </Grid>
                         </Grid>
@@ -98,7 +115,7 @@
             <Button BackgroundColor="#E8FF8E"
                     FontFamily="NexaHeavy"
                     FontSize="16"
-                    Text="{Binding SelectedProfile.Id, StringFormat='Selected ID: {0}'}"
+                    Text="{Binding SelectedProfile.Name}"
                     TextColor="#101215"
                     Command="{Binding SelectProfileCommand}"/>
         </Border>

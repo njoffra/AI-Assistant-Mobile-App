@@ -9,6 +9,6 @@ namespace ProjectMobilne.Services
 {
     public interface IApiService
     {
-        Task<ChatResponseModel> AskChat(string? message);
+        Task<ChatResponseModel> AskChat(string? message, string instruction);
     }
 }

@@ -2,9 +2,11 @@
 using ChatGptNet.Extensions;
 using ChatGptNet.Models;
 using ProjectMobilne.Models;
+using ProjectMobilne.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,16 +15,19 @@ namespace ProjectMobilne.Services
     public class ApiService : IApiService
     {
         private readonly IChatGptClient _chatGptClient;
+        
 
         public ApiService(IChatGptClient chatGptClient)
         {
             _chatGptClient = chatGptClient;
+            
         }
 
-        public async Task<ChatResponseModel> AskChat(string message)
+        public async Task<ChatResponseModel> AskChat(string message, string instruction)
         {
             var conversationId = Guid.NewGuid();
-            var systemMessage = "You are a creative assistant who likes to use irony and comedy to answer certain requests.";
+            var systemMessage = instruction;
+            System.Diagnostics.Debug.WriteLine($"System Message: {systemMessage}");
 
             if (!string.IsNullOrWhiteSpace(systemMessage))
             {

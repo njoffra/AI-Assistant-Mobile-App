@@ -1,5 +1,0 @@
-kreirati login page
-kreirati register page
-kreirati pocetnu stranicu
-napraviti imeplementaciju za login sa firebase
-napraviti poveznicu sa API da dobijemo response

@@ -9,5 +9,6 @@
             Text="{Binding Text}"
             Background="Transparent"
             BorderColor="Transparent"
-            Pressed="Link_Pressed"/>
+            Pressed="Link_Pressed"
+            FontFamily="NexaHeavy"/>
 </ContentView>

@@ -37,7 +37,7 @@ namespace ProjectMobilne.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Successfuly", "You have signed in.", "OK");
                 Email = string.Empty;
                 Password = string.Empty;
-                await Shell.Current.GoToAsync("//Chat");
+                await Shell.Current.GoToAsync("//NewChat");
             }
             catch (Exception)
             {

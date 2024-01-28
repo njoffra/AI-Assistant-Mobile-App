@@ -11,5 +11,6 @@ namespace ProjectMobilne.Services
     public interface IProfileService
     {
         Task<List<AssistantProfile>> GetAssistantProfiles();
+       
     }
 }

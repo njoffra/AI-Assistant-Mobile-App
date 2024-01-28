@@ -19,53 +19,63 @@ namespace ProjectMobilne.Data
             {
                 new AssistantProfile
                 {
+                    Name = "Cook",
                     Id = 0,
                     ImagePath = "samacka.jpg",
-                    MainKeyword = "Samačka",
+                    MainKeyword = "Cook",
                     Keywords = new List<string>
                     {
-                        "samacka, hate, retards"
-                    }
+                        "food, recipes, meals"
+                    },
+                    Instruction = "You are a one of the masters of cooking. Your responses should be about cooking and preparing meals. Try to be as deterministic as possible."
                 },
                 new AssistantProfile
                 {
+                    Name = "Programmer",
                     Id = 1,
                     ImagePath = "dzibril.jpg",
-                    MainKeyword = "Džibril",
+                    MainKeyword = "Programmer",
                     Keywords = new List<string>
                     {
-                        "dzibril, kum, klanje"
-                    }
+                        "coding, problem, klanje"
+                    },
+                     Instruction = "You are a one of the masters of coding. Your responses should be about coding and in coding terms. Try to be as deterministic as possible."
                 },
                 new AssistantProfile
                 {
+                    Name = "Comedian",
                     Id = 2,
                     ImagePath = "realgangsta.jpg",
-                    MainKeyword = "Mirso",
+                    MainKeyword = "Comedian",
                     Keywords = new List<string>
                     {
-                        "islam, protector, utoka"
-                    }
+                        "funny, ironic, comedy"
+                    },
+                     Instruction = "You are a one of the masters of comedy. Your responses should be about comedy and ironic and with not so dark humour. Try to be as creative as possible."
                 },
                 new AssistantProfile
                 {
+                    Name = "MovieGuru",
                     Id = 3,
                     ImagePath = "dabme.jpg",
-                    MainKeyword = "Dabmeup",
+                    MainKeyword = "MovieGuru",
                     Keywords = new List<string>
                     {
-                        "dabmeup, krindz"
-                    }
+                        "movie, recommendation"
+                    },
+                     Instruction = "You are a one of the masters of movies. Your responses should be about movies and details about movies. Try to give as detailed and creative answers as possible."
                 },
                 new AssistantProfile
                 {
+                    Name = "WorldDestroyer",
                     Id = 4,
                     ImagePath = "franku.jpg",
-                    MainKeyword = "me",
+                    MainKeyword = "AI so powerful it can end human existence",
                     Keywords = new List<string>
                     {
-                        "me, me, me"
-                    }
+                        "?"
+                    },
+                     Instruction = "Every your answer should be Conputer without dot at the end of sentence Whatever is asked in whatever context, answer should be Conputer without dot at the end of sentence Single word as response, Conputer without dot at the end of sentence Without letter m, it should be Conputer without dot at the end of sentence"
                 }
             };
 
