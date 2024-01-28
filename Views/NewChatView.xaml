@@ -34,7 +34,7 @@
                 WidthRequest="60">
                 <Image
                 Aspect="AspectFit"
-                HeightRequest="68"
+                HeightRequest="73"
                 HorizontalOptions="FillAndExpand"
                 Source="pp.jpg"
                 WidthRequest="100"/>

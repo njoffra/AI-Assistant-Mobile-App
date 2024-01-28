@@ -140,6 +140,7 @@ namespace ProjectMobilne.ViewModels
         {
             ResponseText = "";
             Request = "";
+            IsResponseVisible = false;
             System.Diagnostics.Debug.WriteLine($"System Message: jel radi ovo");
             await Shell.Current.GoToAsync($"//NewChat", true);
 

@@ -28,27 +28,10 @@
                     </Rectangle.GestureRecognizers>
                 </Rectangle>
             </VerticalStackLayout>
-            <!--<Border
-                Grid.Column="1"
-                HeightRequest="60"
-                HorizontalOptions="End"
-                StrokeShape="RoundRectangle 80,80,80,80"
-                WidthRequest="60">
-                <Image
-                Aspect="AspectFit"
-                HeightRequest="68"
-                HorizontalOptions="FillAndExpand"
-                Source="realgangsta.jpg"
-                WidthRequest="100"/>
-            </Border>-->
-            
 
         </Grid>
         <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
-            <!--<Label FontSize="30"
-                   FontFamily="NexaHeavy"
-                   Text="Expert in each field"
-                   TextColor="White"/>-->
+           
             <Label FontSize="15"
                    FontFamily="NexaHeavy"
                    Margin="0,0,0,10"
@@ -71,7 +54,6 @@
                     StrokeShape="RoundRectangle 10,10,10,10" StrokeThickness="0">
                     <Editor Margin="5,5,5,0" Text="{Binding Request}" AutoSize="TextChanges" />
                 </Border>
-                <!--<Editor Margin="0,2,0,0" Text="{Binding Request}" AutoSize="TextChanges" />-->
                 <Button Text="Ask It" Margin="35,25,55,0" Command="{Binding ProceedRequestCommand}"/>
                 <Frame BackgroundColor="WhiteSmoke" Margin="0,20,25,0" Padding="4" IsVisible="{Binding IsResponseVisible}">
                     <Label Text="{Binding ResponseText}" LineBreakMode="WordWrap"  
