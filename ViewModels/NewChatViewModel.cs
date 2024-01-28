@@ -138,10 +138,13 @@ namespace ProjectMobilne.ViewModels
         [RelayCommand]
         private async Task GoBack()
         {
+            ResponseText = "";
+            Request = "";
             System.Diagnostics.Debug.WriteLine($"System Message: jel radi ovo");
-            await Shell.Current.GoToAsync($"../Views/{nameof(NewChatView)}", true);
+            await Shell.Current.GoToAsync($"//NewChat", true);
+
         }
-        
+
 
     }
 }

@@ -21,7 +21,7 @@ namespace ProjectMobilne.Data
                 {
                     Name = "Cook",
                     Id = 0,
-                    ImagePath = "samacka.jpg",
+                    ImagePath = "cook.png",
                     MainKeyword = "Cook",
                     Keywords = new List<string>
                     {
@@ -33,7 +33,7 @@ namespace ProjectMobilne.Data
                 {
                     Name = "Programmer",
                     Id = 1,
-                    ImagePath = "dzibril.jpg",
+                    ImagePath = "coder.png",
                     MainKeyword = "Programmer",
                     Keywords = new List<string>
                     {
@@ -45,7 +45,7 @@ namespace ProjectMobilne.Data
                 {
                     Name = "Comedian",
                     Id = 2,
-                    ImagePath = "realgangsta.jpg",
+                    ImagePath = "comedian.png",
                     MainKeyword = "Comedian",
                     Keywords = new List<string>
                     {
@@ -57,7 +57,7 @@ namespace ProjectMobilne.Data
                 {
                     Name = "MovieGuru",
                     Id = 3,
-                    ImagePath = "dabme.jpg",
+                    ImagePath = "movie.jpg",
                     MainKeyword = "MovieGuru",
                     Keywords = new List<string>
                     {
@@ -69,7 +69,7 @@ namespace ProjectMobilne.Data
                 {
                     Name = "WorldDestroyer",
                     Id = 4,
-                    ImagePath = "franku.jpg",
+                    ImagePath = "conputer.jpg",
                     MainKeyword = "AI so powerful it can end human existence",
                     Keywords = new List<string>
                     {

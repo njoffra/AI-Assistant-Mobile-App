@@ -36,7 +36,7 @@
                 Aspect="AspectFit"
                 HeightRequest="68"
                 HorizontalOptions="FillAndExpand"
-                Source="realgangsta.jpg"
+                Source="pp.jpg"
                 WidthRequest="100"/>
             </Border>
            
